@@ -6,12 +6,14 @@ class MyStatefulComponent extends React.Component {
   state = { myTestProp: 0 };
 
   componentDidMount() {
-    this.setState({ myTestProp: 0 });
+    this.reset();
   }
 
   componentWillReceiveProps() {
     this.increment();
   }
+
+  reset = () => this.setState({ myTestProp: 0 });
 
   increment = (amount = 1) => {
     const { myTestProp } = this.state;
@@ -25,9 +27,10 @@ class MyStatefulComponent extends React.Component {
 
   render() {
     <MyRenderComponent
-      myTestProp={myTestProp}
+      reset={this.reset}
       increment={this.increment}
       decrement={this.decrement}
+      myTestProp={myTestProp}
     />;
   }
 }
