@@ -1,6 +1,6 @@
 # Stateful code examples
 
-[back to index](../README.md)
+[back to index](../)
 
 Please make sure that your component does the following:
 
