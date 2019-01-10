@@ -1,5 +1,7 @@
 # Stateful code examples
 
+[back to index](../README.md)
+
 Please make sure that your component does the following:
 
 - has a `state`
