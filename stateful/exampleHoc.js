@@ -28,6 +28,10 @@ const StatefulComponentConstructor = (options = {}) => Component =>
     }
   };
 
+// The above HOC could be moved to a separate file, and reused
+// Below is the code which would actually render the stateful component
+// ======================================================================
+
 function MyRenderComponent({ myTestProp }) {
   return <span>{myTestProp}</span>;
 }
