@@ -36,6 +36,7 @@ export default compose(
   // We need to call:
   // - reset on componentWillMount,
   // - increment on componentWillReceiveProps
+  // Refers to Lifecycle which can be found in eko-web-app
   Lifecycle({
     willMount: ({ reset }) => reset(),
     willReceiveProps: ({ increment }) => increment(),
@@ -51,10 +52,10 @@ export default compose(
         setState({ myTestProp: 0 });
       },
       increment(amount = 1) {
-        setState({ myTestProp: this.getState('myTestProp') + amount });
+        setState({ myTestProp: getState('myTestProp') + amount });
       },
       deccrement(amount = 1) {
-        setState({ myTestProp: this.getState('myTestProp') - amount });
+        setState({ myTestProp: getState('myTestProp') - amount });
       },
     }),
   }),
