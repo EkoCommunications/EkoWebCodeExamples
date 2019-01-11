@@ -24,7 +24,7 @@ const StatefulComponentConstructor = (options = {}) => Component =>
     }
 
     render() {
-      <Component {...this.effects} />;
+      <Component {...this.effects} {...this.state} />;
     }
   };
 
