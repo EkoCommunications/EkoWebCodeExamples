@@ -33,15 +33,6 @@ function MyRenderComponent({ myTestProp }) {
 }
 
 export default compose(
-  // We need to call:
-  // - reset on componentWillMount,
-  // - increment on componentWillReceiveProps
-  // Refers to Lifecycle which can be found in eko-web-app
-  Lifecycle({
-    willMount: ({ reset }) => reset(),
-    willReceiveProps: ({ increment }) => increment(),
-  }),
-
   // We'll define the stateful component here
   StatefulComponentConstructor({
     initialState: { myTestProp: 0 },
@@ -58,5 +49,14 @@ export default compose(
         setState({ myTestProp: getState('myTestProp') - amount });
       },
     }),
+  }),
+
+  // We need to call:
+  // - reset on componentWillMount,
+  // - increment on componentWillReceiveProps
+  // Refers to Lifecycle which can be found in eko-web-app
+  Lifecycle({
+    willMount: ({ reset }) => reset(),
+    willReceiveProps: ({ increment }) => increment(),
   }),
 )(MyRenderComponent);
