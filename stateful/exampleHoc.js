@@ -24,7 +24,13 @@ const StatefulComponentConstructor = (options = {}) => Component =>
     }
 
     render() {
-      <Component {...this.effects} {...this.state} />;
+      <Component
+        // Ensure that we always pass parent props to children
+        {...this.props}
+        // Injected props from this HOC
+        {...this.state}
+        {...this.effects}
+      />;
     }
   };
 
