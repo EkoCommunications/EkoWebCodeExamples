@@ -15,6 +15,8 @@ const counter = props => {
 
   useEffect(reset, []); // analog componentDidMount
   useEffect(increment, [props]); // analog componentWillReceiveProps
+
+  return { counter, reset, increment, decrement };
 };
 
 const StatelessComponent = ({ counter, increment, decrement, reset }) => (
