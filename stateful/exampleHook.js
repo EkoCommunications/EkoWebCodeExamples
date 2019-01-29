@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const counter = props => {
+const useCounter = props => {
   const [counter, setCounter] = useState(0);
 
   reset = () => setCounter(0);
@@ -29,5 +29,5 @@ const StatelessComponent = ({ counter, increment, decrement, reset }) => (
 );
 
 export default props => {
-  return <StatelessComponent {...counter(props)} {...props} />;
+  return <StatelessComponent {...useCounter(props)} {...props} />;
 };
