@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Define a HOC which can be used to inject a custom state into a component
-export default (options = {}) => Component =>
+const StatefulComponentConstructor = (options = {}) => Component =>
   class GenericStatefulComponent extends React.Component {
     constructor(props) {
       super(props);
