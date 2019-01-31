@@ -1,5 +1,7 @@
+import React from 'react';
+
 // Define a HOC which can be used to inject a custom state into a component
-const StatefulComponentConstructor = (options = {}) => Component =>
+export default (options = {}) => Component =>
   class GenericStatefulComponent extends React.Component {
     constructor(props) {
       super(props);
@@ -16,21 +18,25 @@ const StatefulComponentConstructor = (options = {}) => Component =>
      * or key from state if defined
      */
     getState(key = undefined) {
+      const { state } = this;
+
       if (key !== undefined) {
         return state[key];
       }
 
-      return this.state;
+      return state;
     }
 
     render() {
-      <Component
-        // Ensure that we always pass parent props to children
-        {...this.props}
-        // Injected props from this HOC
-        {...this.state}
-        {...this.effects}
-      />;
+      return (
+        <Component
+          // Ensure that we always pass parent props to children
+          {...this.props}
+          // Injected props from this HOC
+          {...this.state}
+          {...this.effects}
+        />
+      );
     }
   };
 
