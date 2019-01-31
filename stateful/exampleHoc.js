@@ -9,7 +9,11 @@ const StatefulComponentConstructor = (options = {}) => Component =>
 
       // Effects make state changes
       if (options.effects instanceof Function) {
-        this.effects = options.effects(this.setState, this.getState);
+        this.effects = options.effects(
+          // If we don't bind here these functions will lose their context
+          this.setState.bind(this),
+          this.getState.bind(this),
+        );
       }
     }
 
