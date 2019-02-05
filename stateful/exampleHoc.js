@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Adds component lifecycle methods as HOC
+import Lifecycle from '~/views/components/Lifecycle';
+
 // Define a HOC which can be used to inject a custom state into a component
 const StatefulComponentConstructor = (options = {}) => Component =>
   class GenericStatefulComponent extends React.Component {
